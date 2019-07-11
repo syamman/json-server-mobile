@@ -1,17 +1,8 @@
 json-server:
-  container_name: json_server
+  image: vimagick/json-server
+  command: -H 0.0.0.0 -p 3000 -w db.json
   ports:
     - "3000:3000"
   volumes:
     - ./data:/data
-  networks:
-    - reverse_proxy
-  labels:
-    - traefik.backend=json_server_test
-    - traefik.frontend.rule=Host:json_server.testdev.com
-    - traefik.docker.network=reverse_proxy
-    - traefik.port:3000
   restart: always
-networks:
-  reverse_proxy:
-    external: true
