@@ -3,7 +3,6 @@
 #
 
 FROM alpine
-MAINTAINER kev <noreply@easypi.pro>
 
 WORKDIR /data
 
