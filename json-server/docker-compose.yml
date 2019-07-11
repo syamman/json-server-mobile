@@ -1,7 +1,7 @@
 json-server:
   container_name: json_server
   ports:
-    - "3000:3000"
+    - "3000:80"
   volumes:
     - ./data:/data
   networks:
@@ -10,7 +10,7 @@ json-server:
     - traefik.backend=json_server_test
     - traefik.frontend.rule=Host:json_server.testdev.com
     - traefik.docker.network=reverse_proxy
-    - traefik.port:3000
+    - traefik.port:80
   restart: always
 networks:
   reverse_proxy:
